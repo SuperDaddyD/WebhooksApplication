@@ -1,0 +1,8 @@
+var file = [
+    {
+        name:"Jimbo",
+        job:"Fullstack Developer"
+    }
+]
+
+module.exports = file
