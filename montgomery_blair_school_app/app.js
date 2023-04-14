@@ -12,11 +12,13 @@ app.get("/", (req, res) => {
   console.log("HEY YOU JUST HIT BLAIR!!!");
   res.send({ name: "Benjamin Grim!" });
 });
-app.post("/webhook", (req, res) => {
-  let data = req.body;
 
-  console.log("name: "+data.name);
-  res.send({message:'WEB HOOK RECIEVED!' });
+app.post("/webhook/addStudent", async (req, res) => {
+  console.log("YEP BLAIR!");
+  let data = await req.body;
+
+  await console.table(data.name);
+  res.send({ message: "WEB HOOK RECIEVED!" });
 });
 
 app.listen(PORT, () => {
