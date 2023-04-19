@@ -14,11 +14,21 @@ app.get("/", (req, res) => {
 });
 
 app.post("/webhook/addStudent", async (req, res) => {
-  console.log("YEP BLAIR!");
   let data = await req.body;
+  console.log("YEP BLAIR!", data);
 
-  await console.table(data.name);
+  await console.table(data);
   res.send({ message: "WEB HOOK RECIEVED!" });
+});
+
+app.post("/webhook/myMadeUpHook", async (req, res) => {
+  try {
+    const data = await req.body;
+    console.log("THIS IS THE MY PUFFY HOOK DATA-->", req.body);
+    res.send({ yep: data.puff });
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 app.listen(PORT, () => {
